@@ -1,0 +1,45 @@
+# DeFi Generacy (defidegeneracy.io)
+> **Solana's premier forensic engine. Auditing 100+ protocols at the byte level to hunt dead rent, swept loops & bricked vaults. 100% read-only, zero connect risk—degens respect privacy. <3**
+
+[![License: Proprietary](https://img.shields.io/badge/License-All_Rights_Reserved-red.svg)](#intellectual-property--rights)
+[![Architecture: Read--Only](https://img.shields.io/badge/Architecture-100%25%20Read--Only-06b6d4.svg)](#privacy--security-manifesto)
+[![RPC Optimization](https://img.shields.io/badge/RPC%20CU%20Reduction-90%25-10b981.svg)](#rpc-optimization--alchemy-telemetry)
+
+---
+
+## ⚡ Executive Summary
+**DeFi Generacy** is an ultra-lightweight, high-performance forensic state auditor for the Solana blockchain. By parsing account discriminators, program-derived addresses (PDAs), and account flags directly from public ledger state, DeFi Generacy reveals:
+- **Dormant Rent:** SOL trapped in abandoned program accounts, expired session keys, or closed positions.
+- **Protocol State:** Historical flash-loan loops (e.g., MarginFi v2 automated sweeps), zero-size perp collateral accounts (e.g., Jupiter Perps), and closed program bytecode (e.g., legacy Ape Pro vaults).
+- **Extreme RPC Efficiency:** Designed from day one to operate within developer free-tier constraints (e.g., Alchemy), reducing Compute Units (CUs) by up to 90% via batched `getMultipleAccounts` requests and deterministic client-side caching.
+
+---
+
+## 🛡️ Privacy & Security Manifesto: 100% Read-Only
+- **Zero Wallet Connection:** No `wallet-adapter` scripts, no private keys, and no transaction signing prompts.
+- **Zero Drainer Vulnerability:** By eliminating transaction signing entirely, users have zero risk of rogue approvals, signature manipulation, or malicious balance sweeps.
+- **Public Ledger Transparency:** Uses public base58 public keys to execute read-only RPC calls (`getAccountInfo`, `getMultipleAccounts`).
+
+---
+
+## 🔍 Protocol Audit Matrix (100+ Covered)
+The platform indexes discriminators, seeds, and storage layouts across:
+1. **Perpetuals & Synthetics:** Jupiter Perps (Deterministic position PDAs), Drift v2 (Subaccounts), Zeta v2, Flash Trade, Phoenix, Adrena, Mango v4.
+2. **Lending & Money Markets:** MarginFi v1/v2 (Permissionless `admin_close_account` crank audits), Kamino kLend, Save (Solend), Apricot, Tulip.
+3. **Smart Wallets & Vaults:** Ape Pro (Legacy `JSWX...` ProgramData bricked status, `JSW99...`, modern `APEzniv...`), Squads v3/v4 Multi-sig.
+4. **DEXes & AMMs:** Raydium (AMM v4, CLMM, CPMM), Orca (Whirlpools), Meteora (DLMM), OpenBook v1/v2.
+5. **Staking & Governance:** Jito Tip Distribution, Marinade, Sanctum LSTs, Jupiter Governance & Merkle Distributors (ASR, Jupuary).
+
+---
+
+## 📊 RPC Optimization & Alchemy Telemetry
+Standard multi-protocol audits exhaust free-tier RPCs within minutes. DeFi Generacy solves this via:
+- **Algorithmic PDA Calculation:** Addresses are derived client-side before network dispatch.
+- **Batching:** Querying 100+ protocol PDAs in 100-key chunks using `getMultipleAccounts`.
+- **Telemetry Benchmark:** Decreases per-audit Compute Units from ~120 CUs down to ~12 CUs (~90% overhead reduction).
+
+---
+
+## 📜 Intellectual Property & Rights
+Copyright (c) 2024–2026 DeFi Generacy. All Rights Reserved.  
+Proprietary software. Unauthorized copying, distribution, reverse engineering, or commercial use is strictly prohibited.
